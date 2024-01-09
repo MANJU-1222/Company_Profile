@@ -1,0 +1,19 @@
+image: node:20.10.0-alpine
+pipelines:
+  branches:
+    release/backend:
+      - step:
+          name: build
+          deployment: production
+          runs-on:
+            - self.hosted
+            - linux
+            - production
+          script:
+            - apk update
+            - apk add rsync openssh
+            - npm install --omit=optional
+            - CI=false npm run build
+            - echo -e $INCLUDE_FILES > include-files
+            - rsync -arz --delete --files-from ./include-files $BITBUCKET_CLONE_DIR/ root@$SERVER_IP:pm-server
+            - ssh root@$SERVER_IP "config/server.deploy"

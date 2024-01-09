@@ -1,0 +1,36 @@
+@import '../../../styles/global.style.scss';
+
+.previewer-container {
+  max-width: fit-content;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding: 1rem;
+  padding-top: 2rem;
+  position: relative;
+  .document-container {
+    .react-pdf__Document {
+      width: fit-content;
+      .react-pdf__Page {
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 0px 0px 9px 0px #00000075;
+        .react-pdf__Page__canvas {
+          // max-height: 100% !important;
+          height: 100% !important;
+          width: auto !important;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+  .pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .pageNo {
+      padding: 1rem;
+    }
+  }
+}

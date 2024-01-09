@@ -1,0 +1,14 @@
+image: node:18-alpine
+pipelines:
+  branches:
+    release/frontend:
+      - step:
+          name: deploy
+          deployment: prodclient
+          runs-on:
+            - self.hosted
+            - linux
+            - prodclient
+          script:
+            - apk add openssh
+            - ssh root@$SERVER_IP "config/client.deploy"

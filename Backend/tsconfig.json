@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es2020",                 // Specify the ECMAScript target version
+    "module": "commonjs",               // Specify module system (CommonJS for Node.js)
+    "lib": ["es2020"],                  // Specify the available libraries for compilation
+    "strict": true,                     // Enable all strict type-checking options
+    "esModuleInterop": true,             // Allow default imports from modules with no default export
+    "skipLibCheck": true,                // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true, // Enforce consistent casing in file names
+    "moduleResolution": "node",         // Use Node.js-style module resolution
+    "baseUrl": ".",                     // Base directory to resolve non-relative module names
+    "paths": {
+      "*": ["types/*"]                   // Allow importing modules from the 'types' directory
+    },
+    "outDir": "./dist",                  // Specify an output directory for compiled files
+    "rootDir": ".",                  // Specify the root directory of the source files
+    "declaration": true,                 // Generate corresponding .d.ts files
+    "sourceMap": true,                   // Generate source maps
+    "experimentalDecorators": true,      // Enable experimental decorators
+    "emitDecoratorMetadata": true        // Emit design-type metadata for decorated declarations
+  },
+  "include": ["*.ts"],           // Specify files to include in compilation
+  "exclude": ["node_modules","node_modules/*"]            // Specify files to exclude from compilation
+}
